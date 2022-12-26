@@ -13,6 +13,8 @@ var selectSchedule = document.querySelector(".schedule");
 var selectSeat = document.querySelector(".seat");
 
 const modalOrder = document.getElementById("modal_order");
+const modalSignin = document.getElementById("modal_signin");
+const modalRegister = document.getElementById("modal_register");
 // const btnOrder = document.getElementById("btn_pesan");
 var span = document.getElementsByClassName("close")[0];
 
@@ -55,7 +57,8 @@ var seats = [
 ];
 
 (async function() {
-  let baseUrl = prompt("please enter your backend base url here", "http://yoururl");
+  // let baseUrl = prompt("please enter your backend base url here", "http://yoururl");
+  let baseUrl = "http://localhost:8080";
   await fetch(baseUrl + '/api/bioskop/get-movies')
     .then(response => response.json())
     .then(data => {
@@ -73,6 +76,14 @@ var seats = [
         </div>
      </div>`
     )
+  });
+
+  document.querySelector(".register").addEventListener("click", el => {
+    modalRegister.style.display = "block";
+  });
+
+  document.querySelector(".login").addEventListener("click", el => {
+    modalSignin.style.display = "block";
   });
 
   document.querySelectorAll(".btn_pesan").forEach(el => {

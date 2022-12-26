@@ -424,8 +424,8 @@ footer {
   display: block;
   margin: auto;
   padding-bottom: 10%;
-  height: auto;
-  min-height: 40%;
+  object-fit: cover;
+  height: 40vh;
   max-height: 100%;
 }
 
@@ -462,7 +462,7 @@ footer {
   padding: 20px;
   border: 1px solid #888;
   width: 40%; /* Could be more or less, depending on screen size */
-  height: 70%;
+  min-height: 70%;
 }
 
 .modal-content img {
@@ -507,6 +507,7 @@ footer {
 .order_submit {
   justify-self: center;
   grid-column: 1/ span 2;
+  margin-bottom: 5%;
 }
 
 .form_order {

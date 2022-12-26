@@ -17,30 +17,30 @@ const modalOrder = document.getElementById("modal_order");
 var span = document.getElementsByClassName("close")[0];
 
 var imgs = [
-  {
-    imgUrl : "src/img/movie1.jpg",
-    movieName : "Nama Movie"
-  },
-  {
-    imgUrl : "src/img/movie2.jpeg",
-    movieName : "Nama Movie"
-  },
-  {
-    imgUrl : "src/img/movie3.jpeg",
-    movieName : "Nama Movie"
-  },
-  {
-    imgUrl : "src/img/movie4.jpg",
-    movieName : "Nama Movie"
-  },
-  {
-    imgUrl : "src/img/movie5.jpg",
-    movieName : "Nama Movie"
-  },
-  {
-    imgUrl : "src/img/movie6.jpg",
-    movieName : "Nama Movie"
-  },
+  // {
+  //   imgUrl : "src/img/movie1.jpg",
+  //   movieName : "Nama Movie"
+  // },
+  // {
+  //   imgUrl : "src/img/movie2.jpg",
+  //   movieName : "Nama Movie"
+  // },
+  // {
+  //   imgUrl : "src/img/movie3.jpg",
+  //   movieName : "Nama Movie"
+  // },
+  // {
+  //   imgUrl : "src/img/movie4.jpg",
+  //   movieName : "Nama Movie"
+  // },
+  // {
+  //   imgUrl : "src/img/movie5.jpg",
+  //   movieName : "Nama Movie"
+  // },
+  // {
+  //   imgUrl : "src/img/movie6.jpg",
+  //   movieName : "Nama Movie"
+  // },
 ];
 
 var schedules = [
@@ -54,59 +54,61 @@ var seats = [
   1, 2, 3, 4, 5, 6, 7
 ];
 
-(function() {
+(async function() {
+  let baseUrl = prompt("please enter your backend base url here", "http://yoururl");
+  await fetch(baseUrl + '/api/bioskop/get-movies')
+    .then(response => response.json())
+    .then(data => {
+    imgs = data;
+    console.log(imgs);
+  });
   console.log("HEHE");
   imgs.forEach(val => {
     document.querySelector(".techstack__images").insertAdjacentHTML('beforeend',
     `<div class="movie">
-        <img src="`+val.imgUrl+`" class="movie_img">
+        <img src="`+val.url+`" class="movie_img">
         <div class="movie_info">
-          <p>`+val.movieName+`</p>
+          <p>`+val.name+`</p>
           <button class="btn btn__ghost btn_pesan">Pesan</button>
         </div>
      </div>`
     )
   });
+
+  document.querySelectorAll(".btn_pesan").forEach(el => {
+    el.addEventListener("click", ev => {
+      const im = el.closest('.movie').querySelector('.movie_img').src;
+      const name = el.closest('.movie').querySelector('.movie_info').getElementsByTagName("p")[0].innerHTML;
+      // console.log(name);
+      document.querySelector(".modal-content-order").insertAdjacentHTML('afterbegin',
+        `
+        <img src="` + im + `" class="movie_img_modal">
+        <div class="movie_info_modal">
+          <p>` + name + `</p>
+        </div>
+      `);
+      console.log(ev);
+      schedules.forEach(sched => {
+        const option1 = document.createElement("option");
+        option1.value = sched;
+        option1.text = sched;
+        option1.append = sched;
+        selectSchedule.append(option1);
+      });
+  
+      seats.forEach(seat => {
+        const option2 = document.createElement("option");
+        option2.value = seat;
+        // option2.text = seat;
+        option2.append(seat);
+        selectSeat.append(option2);
+      });
+  
+      modalOrder.style.display = "block";
+    });
+  }
+  );
 })();
-
-document.querySelectorAll(".btn_pesan").forEach( el => {
-  el.addEventListener("click", ev => {
-    const im = el.closest('.movie').querySelector('.movie_img').src;
-    const name = el.closest('.movie').querySelector('.movie_info').getElementsByTagName("p")[0].innerHTML;
-    // console.log(name);
-
-    document.querySelector(".modal-content-order").insertAdjacentHTML('afterbegin',
-    `
-      <img src="` + im + `" class="movie_img_modal">
-      <div class="movie_info_modal">
-        <p>`+ name +`</p>
-      </div>
-    `)
-    console.log(ev);
-    schedules.forEach(sched => {
-      const option1 = document.createElement("option");
-      option1.value = sched;
-      option1.text = sched;
-      option1.append = sched;
-      selectSchedule.append(option1);
-    })
-
-    seats.forEach(seat => {
-      const option2 = document.createElement("option");
-      option2.value = seat;
-      // option2.text = seat;
-      option2.append(seat);
-      selectSeat.append(option2);
-    })
-
-    modalOrder.style.display = "block";
-  })
-}
-)
-
-// .onclick = function() {
-//   modalOrder.style.display = "block";
-// }
 
 span.onclick = function() {
   modalOrder.style.display = "none";
@@ -127,16 +129,16 @@ const aboutDetail = [
   `In terms of frontend development I'm comfortable using Javascript or Typescript. I have experience in using JQuery and Angular but still lacks of experience on using the framework (Still on it!). I can also do HTML + CSS designing (from you or designed by myself).`,
 ];
 
-aboutTab.addEventListener("click", function (e) {
-  const clicked = e.target.closest(".about__tab");
+// aboutTab.addEventListener("click", function (e) {
+//   const clicked = e.target.closest(".about__tab");
 
-  if (!clicked) return;
-  tabs.forEach((t) => t.classList.remove("about__tab--active"));
+//   if (!clicked) return;
+//   tabs.forEach((t) => t.classList.remove("about__tab--active"));
 
-  clicked.classList.add("about__tab--active");
+//   clicked.classList.add("about__tab--active");
 
-  aboutDetails.textContent = aboutDetail[clicked.dataset.tab - 1];
-});
+//   aboutDetails.textContent = aboutDetail[clicked.dataset.tab - 1];
+// });
 
 // const stickyNav = function (entries) {
 //   const [entry] = entries;
@@ -149,14 +151,10 @@ aboutTab.addEventListener("click", function (e) {
 //   // }
 // };
 
-const headerObserver = new IntersectionObserver(stickyNav, {
-  root: null,
-  threshold: 0,
-  rootMargin: `-${navHeight}px`,
-});
-headerObserver.observe(header);
+// const headerObserver = new IntersectionObserver(stickyNav, {
+//   root: null,
+//   threshold: 0,
+//   rootMargin: `-${navHeight}px`,
+// });
+// headerObserver.observe(header);
 
-// console.log(window.screen);
-// console.log(window.screen.width);
-
-// this.init();

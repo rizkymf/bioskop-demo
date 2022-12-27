@@ -57,9 +57,10 @@ var seats = [
 ];
 
 (async function() {
-  // let baseUrl = prompt("please enter your backend base url here", "http://yoururl");
-  let baseUrl = "http://localhost:8080";
-  await fetch(baseUrl + '/api/bioskop/get-movies')
+  let baseUrl = prompt("please enter your backend base url here", "http://yoururl");
+  if(baseUrl === "http://yoururl") baseUrl = "http://localhost:8080";
+  // let baseUrl = "http://localhost:8080";
+  await fetch(baseUrl + '/api/movies/get-movies')
     .then(response => response.json())
     .then(data => {
     imgs = data;
@@ -69,7 +70,7 @@ var seats = [
   imgs.forEach(val => {
     document.querySelector(".techstack__images").insertAdjacentHTML('beforeend',
     `<div class="movie">
-        <img src="`+val.url+`" class="movie_img">
+        <img src="`+val.img+`" class="movie_img">
         <div class="movie_info">
           <p>`+val.name+`</p>
           <button class="btn btn__ghost btn_pesan">Pesan</button>

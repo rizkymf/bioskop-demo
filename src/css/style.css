@@ -496,6 +496,7 @@ footer {
   text-align: center;
 }
 
+/* MODAL : register */
 .modal_register_content {
   display: flex;
   justify-content: center;
@@ -516,6 +517,7 @@ footer {
   margin-bottom: 50px;
 }
 
+/* MODAL : signin */
 .modal_signin_content {
   display: flex;
   justify-content: center;
@@ -532,6 +534,27 @@ footer {
 }
 
 .title_signin {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+/* MODAL : add movie */
+.modal_add_movie_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form_add_movie {
+  background-color: white;
+  width: 400px;
+  border-radius: 8px;
+  padding: 20px 40px;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+.title_new_movie {
   font-size: 50px;
   margin-bottom: 50px;
 }

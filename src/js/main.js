@@ -15,6 +15,7 @@ var selectSeat = document.querySelector(".seat");
 const modalOrder = document.getElementById("modal_order");
 const modalSignin = document.getElementById("modal_signin");
 const modalRegister = document.getElementById("modal_register");
+const modalAddMovie = document.getElementById("modal_add_movie")
 // const btnOrder = document.getElementById("btn_pesan");
 var span = document.getElementsByClassName("close")[0];
 
@@ -66,7 +67,7 @@ var seats = [
     imgs = data;
     console.log(imgs);
   });
-  console.log("HEHE");
+
   imgs.forEach(val => {
     document.querySelector(".techstack__images").insertAdjacentHTML('beforeend',
     `<div class="movie">
@@ -85,6 +86,10 @@ var seats = [
 
   document.querySelector(".login").addEventListener("click", el => {
     modalSignin.style.display = "block";
+  });
+  
+  document.querySelector(".btn_add_movie").addEventListener("click", el => {
+    modalAddMovie.style.display = "block";
   });
 
   document.querySelectorAll(".btn_pesan").forEach(el => {

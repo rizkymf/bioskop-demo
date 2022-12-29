@@ -51,7 +51,7 @@
       </div>
     </header>
     
-    <!-- Modal -->
+    <!-- Modal order -->
     <div id="modal_order" class="modal modal_order">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -81,6 +81,7 @@
       </div>
     </div>
 
+    <!-- Modal Signin user -->
     <div id="modal_signin" class="modal modal_signin">
       <div class="modal_signin_content">
         <form action="" class="form_signin">
@@ -101,6 +102,7 @@
       </div>
     </div>
 
+    <!-- Modal Register user -->
     <div id="modal_register" class="modal modal_register">
       <div class="modal_register_content">
         <form action="" class="form_register">
@@ -136,8 +138,40 @@
       </div>
     </div>
 
+    <!-- Modal Add Movie -->
+    <div id="modal_add_movie" class="modal modal_add_movie">
+      <div class="modal_add_movie_content">
+        <form action="" class="form_add_movie">
+          <h1 class="title_new_movie">Insert New Movie</h1>
+        
+          <div class="inputContainer">
+            <input type="text" class="input" placeholder="a">
+            <label for="" class="label">Movie Name</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="file" class="input" placeholder="a">
+            <label for="" class="label">Poster</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="datetime" class="input" placeholder="a">
+            <label for="" class="label">Schedules</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="Text" class="input" placeholder="a">
+            <label for="" class="label">Studio</label>
+          </div>
+    
+          <input type="submit" class="submitBtn" value="Submit">
+        </form>
+      </div>
+    </div>
+
     <section class="about" id="about">
       <div class="row">
+        <button class="btn_add_movie close">&plus;</button>
         <h2>Now Showing</h2>
         <div class="row techstack__images">
           <!-- <div class="movie">

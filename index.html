@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Bioskop Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./src/css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="./src/css/ionicons.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./src/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="src/css/queries.css"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="src/js/main.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation">
+        <div class="row">
+          <ul class="navigation__list">
+            <li><a class="login">Login</a></li>
+            <li><a class="register">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="hero">
+        <div class="hero_content">
+          <h1>e-Bioskop</h1>
+          <h2 style="text-align: right;">Your one stop cinema platform</h2>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Modal order -->
+    <div id="modal_order" class="modal modal_order">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- <p>Some text in the Modal..</p> -->
+        <div class="modal-content-order">
+          <!-- <img src="src/img/movie1.jpg" class="movie_img">
+          <div class="movie_info">
+            <p>Nama Movie</p>
+          </div> -->
+          <form class="form_order" id="form_order">
+            <label>Jadwal</label>
+            <select name="schedule" class="schedule">
+              <!-- <option value="1">Sunday, 20:00</option>
+              <option value="2">Monday, 15:00</option>
+              <option value="3">Monday, 18:00</option>
+              <option value="4">Tuesday, 18:00</option> -->
+            </select>
+            <label>Seat</label>
+            <select name="seat" class="seat">
+              <!-- <option value="1">1</option>
+              <option value="2">2</option> 
+              <option value="3">3</option> -->
+            </select>
+            <input type="submit" class="order_submit" value="Order">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Signin user -->
+    <div id="modal_signin" class="modal modal_signin">
+      <div class="modal_signin_content">
+        <form action="" class="form_signin">
+          <h1 class="title_signin">Sign In</h1>
+
+          <div class="inputContainer">
+            <input type="email" class="input" placeholder="a">
+            <label for="" class="label">Email</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="password" class="input" placeholder="a">
+            <label for="" class="label">Password</label>
+          </div>
+    
+          <input type="submit" class="submitBtn" value="Sign In">
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Register user -->
+    <div id="modal_register" class="modal modal_register">
+      <div class="modal_register_content">
+        <form action="" class="form_register">
+          <h1 class="title_register">Sign up</h1>
+        
+          <div class="inputContainer">
+            <input type="text" class="input" placeholder="a">
+            <label for="" class="label">Full Name</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="email" class="input" placeholder="a">
+            <label for="" class="label">Email</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" class="input" placeholder="a">
+            <label for="" class="label">Username</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="password" class="input" placeholder="a">
+            <label for="" class="label">Password</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="password" class="input" placeholder="a">
+            <label for="" class="label">Confirm Password</label>
+          </div>
+    
+          <input type="submit" class="submitBtn" value="Sign up">
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Add Movie -->
+    <div id="modal_add_movie" class="modal modal_add_movie">
+      <div class="modal_add_movie_content">
+        <form action="" class="form_add_movie">
+          <h1 class="title_new_movie">Insert New Movie</h1>
+        
+          <div class="inputContainer">
+            <input type="text" class="input" placeholder="a">
+            <label for="" class="label">Movie Name</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="file" class="input" placeholder="a">
+            <label for="" class="label">Poster</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="datetime" class="input" placeholder="a">
+            <label for="" class="label">Schedules</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="Text" class="input" placeholder="a">
+            <label for="" class="label">Studio</label>
+          </div>
+    
+          <input type="submit" class="submitBtn" value="Submit">
+        </form>
+      </div>
+    </div>
+
+    <section class="about" id="about">
+      <div class="row">
+        <button class="btn_add_movie close">&plus;</button>
+        <h2>Now Showing</h2>
+        <div class="row techstack__images">
+          <!-- <div class="movie">
+            <img src="src/img/movie1.jpg" class="movie_img">
+            <div class="movie_info">
+              <p>Nama Movie</p>
+              <button class="btn btn__ghost" id="btn_pesan">Pesan</button>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="src/img/movie2.jpeg" class="movie_img">
+            <div class="movie_info">
+              <p>Nama Movie</p>
+              <button class="btn btn__ghost" id="btn_pesan">Pesan</button>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="src/img/movie3.jpeg" class="movie_img">
+            <div class="movie_info">
+              <p>Nama Movie</p>
+              <button class="btn btn__ghost" id="btn_pesan">Pesan</button>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="src/img/movie4.jpg" class="movie_img">
+            <div class="movie_info">
+              <p>Nama Movie</p>
+              <button class="btn btn__ghost" id="btn_pesan">Pesan</button>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="src/img/movie5.jpg" class="movie_img">
+            <div class="movie_info">
+              <p>Nama Movie</p>
+              <button class="btn btn__ghost" id="btn_pesan">Pesan</button>
+            </div>
+          </div>
+          <div class="movie">
+            <img src="src/img/movie6.jpg" class="movie_img">
+            <div class="movie_info">
+              <p>Nama Movie</p>
+              <button class="btn btn__ghost" id="btn_pesan">Pesan</button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+    <!-- <footer id="footer">
+      <div class="row footer__social">
+        <ul class="footer__social--link">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/rizky-mochamad-fauzi-bb830a144/"
+              ><i class="ion-social-linkedin"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/rizkymochamadfauzi"
+              ><i class="ion-social-facebook"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/rmfxenon"
+              ><i class="ion-social-twitter"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/rizkymf/"
+              ><i class="ion-social-github"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+      <div class="row footer__copyright">
+        <p>
+          Copyright &copy; 2021 by Rizky Mochamad Fauzi. All rights reserved.
+        </p>
+      </div>
+    </footer> -->
+  </body>
+</html>
